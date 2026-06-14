@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://rare-medicine-locator-1u5n.onrender.com",
+  baseURL: "https://rare-medicine-locator-1u5n.onrender.com/api",
 });
 
 api.interceptors.request.use((config) => {
