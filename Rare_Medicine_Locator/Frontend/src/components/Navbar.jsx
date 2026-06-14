@@ -10,7 +10,9 @@ function Navbar() {
   );
 
   const logout = () => {
+
     localStorage.removeItem("user");
+
     navigate("/login");
   };
 
@@ -21,7 +23,7 @@ function Navbar() {
 
         <Link
           to="/"
-          className="flex gap-2 items-center text-2xl font-bold text-emerald-700"
+          className="flex items-center gap-2 text-2xl font-bold text-emerald-700"
         >
           <FaCapsules />
           RareMed
@@ -29,30 +31,101 @@ function Navbar() {
 
         <div className="flex items-center gap-6">
 
-          <Link to="/">Home</Link>
-
-          <Link to="/search">
-            Search
+          <Link to="/">
+            Home
           </Link>
 
-          <Link to="/dashboard">
-            Dashboard
-          </Link>
-
-          {user && (
+          {!user && (
             <>
-              <span className="font-medium text-slate-600">
-                {user.name}
-              </span>
+              <Link to="/login">
+                Login
+              </Link>
 
-              <button
-                onClick={logout}
-                className="bg-red-500 text-white px-4 py-2 rounded-lg"
+              <Link
+                to="/register"
+                className="bg-emerald-600 text-white px-4 py-2 rounded-lg"
               >
-                Logout
-              </button>
+                Register
+              </Link>
             </>
           )}
+
+          {user?.role === "user" && (
+            <>
+              <Link to="/search">
+                Search Medicine
+              </Link>
+
+              <Link to="/pharmacies">
+                Pharmacies
+              </Link>
+
+            </>
+          )}
+
+          {user?.role === "pharmacy" && (
+            <>
+              <Link to="/dashboard">
+                Dashboard
+              </Link>
+
+              <Link to="/pharmacies">
+                Pharmacies
+              </Link>
+
+              <Link to="/add-medicine">
+                Add Medicine
+              </Link>
+
+              <Link to="/manage-medicines">
+                Manage Medicines
+              </Link>
+
+              <Link to="/add-pharmacy">
+              Add Pharmacy
+           </Link>
+
+              <Link to="/manage-pharmacies">
+            Manage Pharmacies
+             </Link>
+
+            </>
+          )}
+
+          {user?.role === "admin" && (
+            <>
+              <Link to="/dashboard">
+                Dashboard
+              </Link>
+
+              <Link to="/admin">
+                Admin
+              </Link>
+
+              <Link to="/pharmacies">
+                Pharmacies
+              </Link>
+            </>
+          )}
+
+          {user && (
+  <>
+    <Link to="/profile">
+      Profile
+    </Link>
+
+    <span className="text-slate-600 font-medium">
+      {user.name}
+    </span>
+
+    <button
+      onClick={logout}
+      className="bg-red-500 text-white px-4 py-2 rounded-lg"
+    >
+      Logout
+    </button>
+  </>
+)}
 
         </div>
 

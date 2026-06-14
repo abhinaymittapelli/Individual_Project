@@ -8,7 +8,8 @@ const {
   searchMedicine,
   updateMedicine,
   deleteMedicine,
-  locateMedicine
+  locateMedicine,
+  searchByCategory
 } = require("../controllers/medicineController");
 
 router.post("/", addMedicine);
@@ -18,6 +19,8 @@ router.get("/", getAllMedicines);
 router.get("/search", searchMedicine);
 
 router.get("/locator", locateMedicine);
+
+router.get("/category",searchByCategory);
 
 router.get("/:id", getMedicineById);
 

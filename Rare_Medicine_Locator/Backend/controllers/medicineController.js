@@ -97,6 +97,27 @@ const deleteMedicine = async (req, res) => {
     });
   }
 };
+
+const searchByCategory = async (req, res) => {
+
+  try {
+
+    const { category } = req.query;
+
+    const medicines = await Medicine.find({
+      category
+    }).populate("pharmacyId");
+
+    res.json(medicines);
+
+  } catch (error) {
+
+    res.status(500).json({
+      message: error.message
+    });
+
+  }
+};
  
 // Rare Medicine Locator
 const locateMedicine = async (req, res) => {
@@ -127,16 +148,23 @@ const locateMedicine = async (req, res) => {
     }).populate("pharmacyId");
 
     const result = medicines.map((medicine) => ({
-      medicineName: medicine.medicineName,
-      brandName: medicine.brandName,
-      genericName: medicine.genericName,
-      quantity: medicine.quantity,
-      pharmacy: medicine.pharmacyId?.pharmacyName,
-      city: medicine.pharmacyId?.city,
-      address: medicine.pharmacyId?.address,
-      phone: medicine.pharmacyId?.phone
-    }));
+  medicineName: medicine.medicineName,
+  brandName: medicine.brandName,
+  genericName: medicine.genericName,
+  quantity: medicine.quantity,
 
+  pharmacy: medicine.pharmacyId?.pharmacyName,
+
+  city: medicine.pharmacyId?.city,
+
+  address: medicine.pharmacyId?.address,
+
+  phone: medicine.pharmacyId?.phone,
+
+  latitude: medicine.pharmacyId?.latitude,
+
+  longitude: medicine.pharmacyId?.longitude
+}));
     res.json(result);
 
   } catch (error) {
@@ -153,5 +181,6 @@ module.exports = {
   searchMedicine,
   updateMedicine,
   deleteMedicine,
-  locateMedicine
+  locateMedicine,
+  searchByCategory
 };

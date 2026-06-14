@@ -6,6 +6,8 @@ const pharmacySchema = new mongoose.Schema(
 
     ownerName: String,
 
+    ownerEmail:String,
+
     phone: String,
 
     address: String,
@@ -18,6 +20,11 @@ const pharmacySchema = new mongoose.Schema(
 
     longitude: Number,
 
+    ownerId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    },
+
     isVerified: {
       type: Boolean,
       default: false
@@ -26,4 +33,7 @@ const pharmacySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Pharmacy", pharmacySchema);
+module.exports = mongoose.model(
+  "Pharmacy",
+  pharmacySchema
+);
