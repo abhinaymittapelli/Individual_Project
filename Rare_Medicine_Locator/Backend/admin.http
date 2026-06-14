@@ -1,0 +1,23 @@
+### Dashboard Stats
+GET http://localhost:5000/api/admin/stats
+
+###
+
+### Get All Users
+GET http://localhost:5000/api/admin/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMmMyZjc1NTA2MmMxYTZkZTNiMWEwOCIsImlhdCI6MTc4MTI4MDYyOSwiZXhwIjoxNzgxODg1NDI5fQ.uh_FvfgTM0ZXJGzfraUFmEKC5Rgu9PoeRV5piAPJY0c
+
+###
+
+### Get All Pharmacies
+GET http://localhost:5000/api/admin/pharmacies
+
+###
+
+### Get All Medicines
+GET http://localhost:5000/api/admin/medicines
+
+###
+
+### Delete User
+DELETE http://localhost:5000/api/admin/user/6a23e8a9d9064cd09d5bb370

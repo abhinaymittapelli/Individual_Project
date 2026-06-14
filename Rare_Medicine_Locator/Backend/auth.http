@@ -1,0 +1,27 @@
+### Register User
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Abhi",
+  "email": "abhi@gmail.com",
+  "password": "123456",
+  "role": "user"
+}
+
+###
+
+### Login User
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "abhinay@gmail.com",
+  "password": "123456"
+}
+
+###
+
+### Get Profile
+GET http://localhost:5000/api/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjNlN2E2MjRmNmVkMTVlMDM4MDU0MiIsImlhdCI6MTc4MTI4MDUzNCwiZXhwIjoxNzgxODg1MzM0fQ.K1D77GSCBmBuW08p54cSvGqTdQqCsG-fDa9ZdJGv1bQ

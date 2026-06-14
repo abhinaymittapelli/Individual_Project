@@ -1,0 +1,45 @@
+### Add Medicine
+POST http://localhost:5000/api/medicine
+Content-Type: application/json
+
+{
+  "medicineName": "Dolo 650",
+  "brandName": "Micro Labs",
+  "genericName": "Paracetamol",
+  "category": "Fever",
+  "quantity": 100,
+  "price": 25,
+  "expiryDate": "2027-12-31",
+  "pharmacyId": "6a23e76924f6ed15e0380541"
+}
+
+###
+
+### Get All Medicines
+GET http://localhost:5000/api/medicine
+
+###
+
+### Search Medicine
+GET http://localhost:5000/api/medicine/search?name=dolo
+
+###
+
+### Get Medicine By ID
+GET http://localhost:5000/api/medicine/6a23e8a9d9064cd09d5bb370
+
+###
+
+### Update Medicine
+PUT http://localhost:5000/api/medicine/6a23e8a9d9064cd09d5bb370
+Content-Type: application/json
+
+{
+  "quantity": 200,
+  "price": 30
+}
+
+###
+
+### Delete Medicine
+DELETE http://localhost:5000/api/medicine/PASTE_MEDICINE_ID_HERE

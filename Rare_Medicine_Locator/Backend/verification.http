@@ -1,0 +1,20 @@
+### Add Verification
+POST http://localhost:5000/api/verification
+Content-Type: application/json
+
+{
+  "medicineId": "6a23e8a9d9064cd09d5bb370",
+  "userId": "6a23e7a624f6ed15e0380542",
+  "status": "available",
+  "comment": "Medicine is available today"
+}
+
+###
+
+### Get All Verifications
+GET http://localhost:5000/api/verification
+
+###
+
+### Get Verifications By Medicine
+GET http://localhost:5000/api/verification/6a23e8a9d9064cd09d5bb370

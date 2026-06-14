@@ -1,0 +1,42 @@
+### Create Pharmacy
+POST http://localhost:5000/api/pharmacy
+Content-Type: application/json
+
+{
+  "pharmacyName": "Apollo Pharmacy",
+  "ownerName": "Ramesh",
+  "phone": "9876543210",
+  "address": "Hanamkonda",
+  "city": "Warangal",
+  "state": "Telangana",
+  "latitude": 17.9784,
+  "longitude": 79.5941
+}
+
+###
+
+### Get All Pharmacies
+GET http://localhost:5000/api/pharmacy
+
+###
+
+### Get Pharmacy By ID
+GET http://localhost:5000/api/pharmacy/6a23e6de24f6ed15e0380540
+
+###
+
+### Update Pharmacy
+PUT http://localhost:5000/api/pharmacy/6a23e6de24f6ed15e0380540
+Content-Type: application/json
+
+{
+  "pharmacyName": "Apollo Pharmacy Updated",
+  "ownerName": "Ramesh Kumar",
+  "phone": "9999999999",
+  "city": "Hyderabad"
+}
+
+###
+
+### Delete Pharmacy
+DELETE http://localhost:5000/api/pharmacy/6a23e6de24f6ed15e0380540
