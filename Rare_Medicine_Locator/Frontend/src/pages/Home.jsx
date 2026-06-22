@@ -57,10 +57,10 @@ function Home() {
             <div>
 
               <img
-                src="https://images.unsplash.com/photo-1580281657527-47d5f2d4c3b4?auto=format&fit=crop&w=900&q=80"
-                alt="Healthcare"
-                className="rounded-3xl shadow-2xl w-full h-[450px] object-cover"
-              />
+  src="https://images.pexels.com/photos/8460048/pexels-photo-8460048.jpeg"
+  alt="Healthcare"
+  className="rounded-3xl shadow-2xl w-full h-[450px] object-cover"
+/>
 
             </div>
 
