@@ -99,16 +99,29 @@ const deleteMedicine = async (req, res) => {
 };
 
 const searchByCategory = async (req, res) => {
-
   try {
 
-    const { category } = req.query;
-
     const medicines = await Medicine.find({
-      category
+      category: req.query.category
     }).populate("pharmacyId");
 
-    res.json(medicines);
+    const result = medicines.map((medicine) => ({
+      medicineName: medicine.medicineName,
+      brandName: medicine.brandName,
+      genericName: medicine.genericName,
+      quantity: medicine.quantity,
+      price: medicine.price,
+
+      pharmacy: medicine.pharmacyId?.pharmacyName,
+      city: medicine.pharmacyId?.city,
+      address: medicine.pharmacyId?.address,
+      phone: medicine.pharmacyId?.phone,
+
+      latitude: medicine.pharmacyId?.latitude,
+      longitude: medicine.pharmacyId?.longitude
+    }));
+
+    res.json(result);
 
   } catch (error) {
 

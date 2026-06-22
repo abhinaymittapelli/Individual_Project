@@ -15,7 +15,7 @@ function SearchMedicine() {
       const res = await api.get(
         `/medicine/locator?name=${search}`
       );
-
+      console.log("API RESPONSE:", res.data);
       setMedicines(res.data);
 
     } catch (error) {
